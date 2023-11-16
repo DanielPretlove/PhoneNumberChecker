@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.24" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneNumberChecker.Data.Access\PhoneNumberChecker.Data.Access.csproj" />
+    <ProjectReference Include="..\PhoneNumberChecker.Data.Entities\PhoneNumberChecker.Data.Entities.csproj" />
+    <ProjectReference Include="..\PhoneNumberChecker.Web.Shared\PhoneNumberChecker.Web.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
