@@ -1,10 +1,12 @@
-﻿using PhoneNumberChecker.Data.Access.Repositories;
+﻿using Azure.Core;
+using PhoneNumberChecker.Data.Access.Repositories;
 using PhoneNumberChecker.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace PhoneNumberChecker.Application.Services
 {
@@ -21,10 +23,17 @@ namespace PhoneNumberChecker.Application.Services
         {
            return await _countryReposiotry.GetAllCountries();
         }
-
         public async Task<Country> GetCountryByCountryCode(string countryCode)
         {
-            return await _countryReposiotry.GetCountryByCountryCode(countryCode);
+            if(countryCode == null)
+            {
+                throw new Exception();
+            }
+
+            else
+            {
+                return await _countryReposiotry.GetCountryByCountryCode(countryCode);
+            }
         }
     }
 }

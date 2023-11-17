@@ -18,18 +18,12 @@ namespace PhoneNumberChecker.Application.Services
 
             if (string.IsNullOrEmpty(telephoneNumber))
             {
-                validationResult = new ValidationResultModel()
-                {
-                    
-                };
+                validationResult = new ValidationResultModel() {};
             }
             else if ((string.IsNullOrEmpty(countryCode)) || ((countryCode.Length != 2) && (countryCode.Length != 3)))
             {
 
-                validationResult = new ValidationResultModel()
-                {
-                    
-                };
+                validationResult = new ValidationResultModel() {};
             }
             else
             {
