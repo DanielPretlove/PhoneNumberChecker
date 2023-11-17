@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PhoneNumberChecker.Data.Access\PhoneNumberChecker.Data.Access.csproj" />
     <ProjectReference Include="..\PhoneNumberChecker.Data.Entities\PhoneNumberChecker.Data.Entities.csproj" />
-    <ProjectReference Include="..\PhoneNumberChecker.Web.Shared\PhoneNumberChecker.Web.Shared.csproj" />
+	<ProjectReference Include="..\PhoneNumberChecker.Web.Shared\PhoneNumberChecker.Web.Shared.csproj" />
   </ItemGroup>
 
 </Project>

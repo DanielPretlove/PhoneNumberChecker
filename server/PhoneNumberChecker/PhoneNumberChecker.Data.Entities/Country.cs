@@ -9,5 +9,6 @@ namespace PhoneNumberChecker.Data.Entities
     public class Country : DataEntity
     {
         public string Name { get; set; }
+        public string CountryCode { get; set; }
     }
 }

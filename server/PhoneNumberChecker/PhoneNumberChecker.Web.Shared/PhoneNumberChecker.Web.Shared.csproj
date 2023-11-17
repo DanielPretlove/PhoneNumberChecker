@@ -10,5 +10,5 @@
     <ProjectReference Include="..\PhoneNumberChecker.Data.Access\PhoneNumberChecker.Data.Access.csproj" />
     <ProjectReference Include="..\PhoneNumberChecker.Data.Entities\PhoneNumberChecker.Data.Entities.csproj" />
   </ItemGroup>
-
+	
 </Project>

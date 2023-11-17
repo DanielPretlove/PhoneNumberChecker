@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PhoneNumberChecker.Application\PhoneNumberChecker.Application.csproj" />
-    <ProjectReference Include="..\PhoneNumberChecker.Web.Shared\PhoneNumberChecker.Web.Shared.csproj" />
+	<ProjectReference Include="..\PhoneNumberChecker.Web.Shared\PhoneNumberChecker.Web.Shared.csproj" />
   </ItemGroup>
 	
 	<ItemGroup>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PhoneNumberChecker.Data.Access.Repository
+namespace PhoneNumberChecker.Application.Services
 {
-    public class NumberCheckerRepository
+    internal class CountryService
     {
     }
 }

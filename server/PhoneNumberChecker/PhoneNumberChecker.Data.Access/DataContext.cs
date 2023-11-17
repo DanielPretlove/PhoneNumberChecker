@@ -25,6 +25,10 @@ namespace PhoneNumberChecker.Data.Access
             {
                 modelBuilder.Entity(entityType);
             }
+
+            modelBuilder.Entity<Country>().HasData(new Country { Id = Guid.NewGuid(), Name = "Australia", CountryCode = "AU" });
+            modelBuilder.Entity<Country>().HasData(new Country { Id = Guid.NewGuid(), Name = "New Zealand", CountryCode = "NZ" });
+            modelBuilder.Entity<Country>().HasData(new Country { Id = Guid.NewGuid(), Name = "Italy", CountryCode = "IT" });
         }
     }
 }
