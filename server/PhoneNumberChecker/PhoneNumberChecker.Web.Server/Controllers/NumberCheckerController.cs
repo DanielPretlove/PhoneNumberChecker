@@ -5,9 +5,8 @@ using PhoneNumberChecker.Web.Shared;
 
 namespace PhoneNumberChecker.Web.Server.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class NumberCheckerController : ControllerBase
+
+    public class NumberCheckerController : BaseApiController
     {
         private readonly NumberCheckerService _service;
         

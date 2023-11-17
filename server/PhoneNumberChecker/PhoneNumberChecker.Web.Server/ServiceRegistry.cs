@@ -2,6 +2,7 @@
 using PhoneNumberChecker.Application.Mappers;
 using PhoneNumberChecker.Application.Services;
 using PhoneNumberChecker.Data.Access;
+using PhoneNumberChecker.Data.Access.Repositories;
 
 namespace PhoneNumberChecker.Web.Server
 {
@@ -10,7 +11,8 @@ namespace PhoneNumberChecker.Web.Server
         public static IServiceCollection ServiceRegistryContainer(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<NumberCheckerService>();
-            //services.AddScoped(typeof(INumberCheckerRepository), typeof(NumberCheckerRepository));
+            services.AddScoped<CountryService>();
+            services.AddScoped(typeof(ICountryReposiotry), typeof(CountryRepository));
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddScoped(typeof(AutoMapper.Mapper));
             services.AddDbContext<DataContext>(options =>

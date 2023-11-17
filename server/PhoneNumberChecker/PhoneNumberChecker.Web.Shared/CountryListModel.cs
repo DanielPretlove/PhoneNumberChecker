@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhoneNumberChecker.Web.Shared
 {
-    internal class CountryListModel
+    public class CountryListModel
     {
     }
 }

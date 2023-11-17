@@ -22,7 +22,7 @@ namespace PhoneNumberChecker.Data.Access.Repositories
 
         public async Task<Country> GetCountryByCountryCode(string countryCode)
         {
-            return await _context.Set<Country>().FindAsync(countryCode);
+            return await _context.Set<Country>().FirstOrDefaultAsync(c => c.CountryCode == countryCode);
         }
     }
 }
