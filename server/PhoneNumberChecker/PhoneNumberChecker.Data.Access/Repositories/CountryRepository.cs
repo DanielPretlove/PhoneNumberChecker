@@ -21,10 +21,5 @@ namespace PhoneNumberChecker.Data.Access.Repositories
         {
             return await _context.Set<Country>().ToListAsync();
         }
-
-        public async Task<Country> GetCountryByCountryCode(string countryCode)
-        {
-            return await _context.Set<Country>().FirstOrDefaultAsync(c => c.CountryCode == countryCode);
-        }
     }
 }

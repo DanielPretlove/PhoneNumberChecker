@@ -16,7 +16,6 @@
 .validation_container {
   min-width: 300px;
   min-height: 300px;
-  border-right: 2px solid lightgray;
   padding: 0 30px;
 
 }
@@ -28,6 +27,8 @@
   justify-self: center;
   justify-items: center;
   justify-content: center;
+  border-left: 2px solid lightgray;
+
 }
 
 .button_component {

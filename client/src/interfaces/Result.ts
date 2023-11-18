@@ -1,10 +1,10 @@
 
 
 export interface Result {
-  IsValid: boolean;
-  IsPossible: boolean;
-  PhoneType: string;
-  PhoneNumber: string;
-  InternationalFormat: string;
-  CountryCode: string;
+  isValid: boolean;
+  isPossible: boolean;
+  phoneType: string;
+  phoneNumber: string;
+  internationalFormat: string;
+  countryCode: string;
 }

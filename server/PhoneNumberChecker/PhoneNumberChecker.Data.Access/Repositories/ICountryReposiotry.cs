@@ -10,6 +10,5 @@ namespace PhoneNumberChecker.Data.Access.Repositories
     public interface ICountryReposiotry
     {
         Task<IList<Country>> GetAllCountries();
-        Task<Country> GetCountryByCountryCode(string countryCode);
     }
 }

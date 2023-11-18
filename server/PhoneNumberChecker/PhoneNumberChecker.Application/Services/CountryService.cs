@@ -23,17 +23,5 @@ namespace PhoneNumberChecker.Application.Services
         {
            return await _countryReposiotry.GetAllCountries();
         }
-        public async Task<Country> GetCountryByCountryCode(string countryCode)
-        {
-            if(countryCode == null)
-            {
-                throw new Exception();
-            }
-
-            else
-            {
-                return await _countryReposiotry.GetCountryByCountryCode(countryCode);
-            }
-        }
     }
 }

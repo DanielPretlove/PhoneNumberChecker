@@ -12,18 +12,27 @@ namespace PhoneNumberChecker.Application.Services
 {
     public class NumberCheckerService
     {
-        public async Task<ValidationResultModel> ValidatePhoneNumber(string telephoneNumber, string countryCode)
+        public ValidationResultModel ValidatePhoneNumber(string telephoneNumber, string countryCode)
         {
             ValidationResultModel validationResult;
-
+            var unknownType = PhoneNumberType.UNKNOWN.ToString().ToLower();
             if (string.IsNullOrEmpty(telephoneNumber))
             {
-                validationResult = new ValidationResultModel() {};
+                validationResult = new ValidationResultModel()
+                {
+                    IsValid = false,
+                    IsPossible = false,
+                    PhoneType = unknownType,
+                };
             }
-            else if ((string.IsNullOrEmpty(countryCode)) || ((countryCode.Length != 2) && (countryCode.Length != 3)))
+            else if ((string.IsNullOrEmpty(countryCode)) || ((countryCode.Length != 2)))
             {
-
-                validationResult = new ValidationResultModel() {};
+                validationResult = new ValidationResultModel()
+                {
+                    IsValid = false,
+                    IsPossible = false,
+                    PhoneType = unknownType,
+                };
             }
             else
             {
@@ -31,28 +40,24 @@ namespace PhoneNumberChecker.Application.Services
                 PhoneNumber phoneNumber = phoneUtil.Parse(telephoneNumber, countryCode);
 
                 bool isMobile = false;
-                bool isValidNumber = phoneUtil.IsValidNumber(phoneNumber); 
-
                 bool isValidRegion = phoneUtil.IsValidNumberForRegion(phoneNumber, countryCode); 
-
                 string region = phoneUtil.GetRegionCodeForNumber(phoneNumber); 
-
                 var numberType = phoneUtil.GetNumberType(phoneNumber); 
 
                 string phoneNumberType = numberType.ToString();
 
-                if (!string.IsNullOrEmpty(phoneNumberType) && phoneNumberType == "MOBILE")
+                if (!string.IsNullOrEmpty(phoneNumberType) && phoneNumberType == PhoneNumberType.MOBILE.ToString())
                 {
                     isMobile = true;
                 }
-
                 var originalNumber = phoneUtil.Format(phoneNumber, PhoneNumberFormat.E164); 
 
-                if(telephoneNumber.Length == 10 && isMobile == true)
+
+                if(telephoneNumber.Length == 10 && isValidRegion == true)
                 {
                     validationResult = new ValidationResultModel()
                     {
-                        IsValid = isValidNumber,
+                        IsValid = isValidRegion,
                         IsPossible = isMobile,
                         PhoneType = phoneNumberType.ToLower(),
                         PhoneNumber = telephoneNumber,
@@ -63,7 +68,12 @@ namespace PhoneNumberChecker.Application.Services
 
                 else
                 {
-                    validationResult = new ValidationResultModel() { };
+                    validationResult = new ValidationResultModel() 
+                    {
+                        IsValid = false,
+                        IsPossible = false,
+                        PhoneType = unknownType,
+                    };
                 }
             }
             return validationResult;
