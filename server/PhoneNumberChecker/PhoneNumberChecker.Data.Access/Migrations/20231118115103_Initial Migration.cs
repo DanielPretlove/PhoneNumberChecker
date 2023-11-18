@@ -14,7 +14,7 @@ namespace PhoneNumberChecker.Data.Access.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Country",
+                name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -23,17 +23,17 @@ namespace PhoneNumberChecker.Data.Access.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Country", x => x.Id);
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Country",
+                table: "Countries",
                 columns: new[] { "Id", "CountryCode", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("df62ad04-776c-4bce-846d-cc7cd0c0aeb3"), "AU", "Australia" },
-                    { new Guid("e82c01ae-251b-4b2b-a006-63ff32968790"), "IT", "Italy" },
-                    { new Guid("f4bd356e-cfc3-4119-9428-474c11056fd5"), "NZ", "New Zealand" }
+                    { new Guid("01a0fa2d-b88a-452a-aac9-df0b0ee2828a"), "NZ", "New Zealand" },
+                    { new Guid("41ff82cc-3ec7-4247-aa49-5684c2db4aef"), "IT", "Italy" },
+                    { new Guid("f8a232dd-e6e5-4d90-a96f-b85d5c4277a3"), "AU", "Australia" }
                 });
         }
 
@@ -41,7 +41,7 @@ namespace PhoneNumberChecker.Data.Access.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Country");
+                name: "Countries");
         }
     }
 }

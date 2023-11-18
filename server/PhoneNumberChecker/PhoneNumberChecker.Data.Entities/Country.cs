@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace PhoneNumberChecker.Data.Entities
 {
-    public class Country : DataEntity
+    public class Country
     {
-        public string Name { get; set; }
-        public string CountryCode { get; set; }
+        public Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string CountryCode { get; set; }
     }
 }

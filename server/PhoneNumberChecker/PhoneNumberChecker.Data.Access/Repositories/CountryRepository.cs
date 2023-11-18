@@ -19,7 +19,7 @@ namespace PhoneNumberChecker.Data.Access.Repositories
         }
         public async Task<IList<Country>> GetAllCountries()
         {
-            return await _context.Set<Country>().ToListAsync();
+            return await _context.Countries.ToListAsync();
         }
     }
 }

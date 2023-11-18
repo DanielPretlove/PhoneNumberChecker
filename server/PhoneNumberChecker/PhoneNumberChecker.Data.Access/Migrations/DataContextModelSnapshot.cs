@@ -38,24 +38,24 @@ namespace PhoneNumberChecker.Data.Access.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.ToTable("Countries");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("df62ad04-776c-4bce-846d-cc7cd0c0aeb3"),
+                            Id = new Guid("f8a232dd-e6e5-4d90-a96f-b85d5c4277a3"),
                             CountryCode = "AU",
                             Name = "Australia"
                         },
                         new
                         {
-                            Id = new Guid("f4bd356e-cfc3-4119-9428-474c11056fd5"),
+                            Id = new Guid("01a0fa2d-b88a-452a-aac9-df0b0ee2828a"),
                             CountryCode = "NZ",
                             Name = "New Zealand"
                         },
                         new
                         {
-                            Id = new Guid("e82c01ae-251b-4b2b-a006-63ff32968790"),
+                            Id = new Guid("41ff82cc-3ec7-4247-aa49-5684c2db4aef"),
                             CountryCode = "IT",
                             Name = "Italy"
                         });

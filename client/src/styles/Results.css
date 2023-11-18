@@ -1,0 +1,29 @@
+.result_container {
+    padding: 0 30px;
+    min-width: 300px;
+    min-height: 300px;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    border-left: 2px solid lightgray;
+}
+
+.result_container .button_component {
+    margin-top: 0px;
+}
+  
+div.value {
+    display: flex;
+    flex-direction: row;
+}
+  
+div.value .title {
+    font-weight: 600;
+    padding-right: 5px;
+}
+
+button.download_csv {
+    background-color: #4a8cac;
+    color: white;
+}
+  

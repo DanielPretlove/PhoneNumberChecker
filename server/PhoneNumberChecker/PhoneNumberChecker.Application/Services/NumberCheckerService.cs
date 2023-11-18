@@ -23,6 +23,7 @@ namespace PhoneNumberChecker.Application.Services
                     IsValid = false,
                     IsPossible = false,
                     PhoneType = unknownType,
+                    InternationalFormat = "unknown"
                 };
             }
             else if ((string.IsNullOrEmpty(countryCode)) || ((countryCode.Length != 2)))
@@ -32,6 +33,7 @@ namespace PhoneNumberChecker.Application.Services
                     IsValid = false,
                     IsPossible = false,
                     PhoneType = unknownType,
+                    InternationalFormat = "unknown"
                 };
             }
             else
@@ -41,7 +43,6 @@ namespace PhoneNumberChecker.Application.Services
 
                 bool isMobile = false;
                 bool isValidRegion = phoneUtil.IsValidNumberForRegion(phoneNumber, countryCode); 
-                string region = phoneUtil.GetRegionCodeForNumber(phoneNumber); 
                 var numberType = phoneUtil.GetNumberType(phoneNumber); 
 
                 string phoneNumberType = numberType.ToString();
@@ -60,9 +61,7 @@ namespace PhoneNumberChecker.Application.Services
                         IsValid = isValidRegion,
                         IsPossible = isMobile,
                         PhoneType = phoneNumberType.ToLower(),
-                        PhoneNumber = telephoneNumber,
                         InternationalFormat = originalNumber,
-                        CountryCode = region
                     };
                 }
 
@@ -73,6 +72,7 @@ namespace PhoneNumberChecker.Application.Services
                         IsValid = false,
                         IsPossible = false,
                         PhoneType = unknownType,
+                        InternationalFormat = "unknown"
                     };
                 }
             }

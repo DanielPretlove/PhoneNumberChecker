@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PhoneNumberChecker.Application.Services;
 using PhoneNumberChecker.Data.Entities;
 

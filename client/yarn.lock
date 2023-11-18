@@ -2138,6 +2138,13 @@
   "resolved" "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.7.tgz"
   "version" "1.2.7"
 
+"@types/react-csv@^1.1.8":
+  "integrity" "sha512-TNbpNDLlclMyAkClcJ1iHz/vOPxrxwAhNO5DI/t47e2HKhBRra6aOzOADPtw9K8nGYQ098ie3r4q70zQxLjfhg=="
+  "resolved" "https://registry.npmjs.org/@types/react-csv/-/react-csv-1.1.8.tgz"
+  "version" "1.1.8"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^18.0.0":
   "integrity" "sha512-HWMdW+7r7MR5+PZqJF6YFNSCtjz1T0dsvo/f1BV6HkV+6erD/nA7wd9NM00KVG83zf2nJ7uATPO9ttdIPvi3gg=="
   "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.15.tgz"
@@ -7801,6 +7808,11 @@
     "raf" "^3.4.1"
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
+
+"react-csv@^2.2.2":
+  "integrity" "sha512-RG5hOcZKZFigIGE8LxIEV/OgS1vigFQT4EkaHeKgyuCbUAu9Nbd/1RYq++bJcJJ9VOqO/n9TZRADsXNDR4VEpw=="
+  "resolved" "https://registry.npmjs.org/react-csv/-/react-csv-2.2.2.tgz"
+  "version" "2.2.2"
 
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
