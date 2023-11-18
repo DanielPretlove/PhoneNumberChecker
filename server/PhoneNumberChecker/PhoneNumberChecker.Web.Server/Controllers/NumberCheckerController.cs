@@ -15,8 +15,7 @@ namespace PhoneNumberChecker.Web.Server.Controllers
             _service = service;
         }
 
-        [Route("ValidatePhoneNumber/{telephoneNumber}/{countryCode}")]
-        [HttpGet]
+        [HttpGet("ValidatePhoneNumber/{telephoneNumber}/{countryCode}")]
         public ValidationResultModel ValidatePhoneNumber(string telephoneNumber, string countryCode)
         {
             var result = _service.ValidatePhoneNumber(telephoneNumber, countryCode);

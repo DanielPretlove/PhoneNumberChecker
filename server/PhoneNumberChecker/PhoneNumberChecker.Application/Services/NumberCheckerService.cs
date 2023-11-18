@@ -1,4 +1,5 @@
-﻿using PhoneNumberChecker.Data.Entities;
+﻿using Microsoft.IdentityModel.Tokens;
+using PhoneNumberChecker.Data.Entities;
 using PhoneNumberChecker.Web.Shared;
 using PhoneNumbers;
 using System;
@@ -16,6 +17,13 @@ namespace PhoneNumberChecker.Application.Services
         {
             ValidationResultModel validationResult;
             var unknownType = PhoneNumberType.UNKNOWN.ToString().ToLower();
+            PhoneNumberUtil phoneUtil = PhoneNumberUtil.GetInstance();
+            PhoneNumber phoneNumber = phoneUtil.Parse(telephoneNumber, countryCode);
+
+            bool isMobile = false;
+            bool isValidRegion = phoneUtil.IsValidNumberForRegion(phoneNumber, countryCode);
+            var numberType = phoneUtil.GetNumberType(phoneNumber);
+
             if (string.IsNullOrEmpty(telephoneNumber))
             {
                 validationResult = new ValidationResultModel()
@@ -38,29 +46,20 @@ namespace PhoneNumberChecker.Application.Services
             }
             else
             {
-                PhoneNumberUtil phoneUtil = PhoneNumberUtil.GetInstance();
-                PhoneNumber phoneNumber = phoneUtil.Parse(telephoneNumber, countryCode);
 
-                bool isMobile = false;
-                bool isValidRegion = phoneUtil.IsValidNumberForRegion(phoneNumber, countryCode); 
-                var numberType = phoneUtil.GetNumberType(phoneNumber); 
-
-                string phoneNumberType = numberType.ToString();
-
-                if (!string.IsNullOrEmpty(phoneNumberType) && phoneNumberType == PhoneNumberType.MOBILE.ToString())
+                if (!string.IsNullOrEmpty(numberType.ToString()) && numberType == PhoneNumberType.MOBILE)
                 {
                     isMobile = true;
                 }
+
                 var originalNumber = phoneUtil.Format(phoneNumber, PhoneNumberFormat.E164); 
-
-
                 if(telephoneNumber.Length == 10 && isValidRegion == true)
                 {
                     validationResult = new ValidationResultModel()
                     {
                         IsValid = isValidRegion,
                         IsPossible = isMobile,
-                        PhoneType = phoneNumberType.ToLower(),
+                        PhoneType = numberType.ToString().ToLower(),
                         InternationalFormat = originalNumber,
                     };
                 }

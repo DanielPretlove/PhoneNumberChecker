@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { Result } from "../interfaces/Result";
 import "../styles/Results.css"
@@ -18,9 +18,23 @@ const ResultComponet = ({result}: Props) => {
   ]
 
   const data = [
-    {result: {isValid: result?.isValid, isPossible: result?.isPossible, phoneType: result?.phoneType, "internationFormat": result?.internationalFormat}},
+    {
+      result: {
+        isValid: result?.isValid,
+        isPossible: result?.isPossible,
+        phoneType: result?.phoneType,
+        internationFormat: result?.internationalFormat
+      }
+    },
   ]
   
+
+  useEffect(() => {
+    if (result?.isValid === true) {
+      setErrorMessage("");
+    }
+  }, [result])
+
   return (
     <div className='result_container'>
       <div className='value isValid'>
@@ -41,10 +55,10 @@ const ResultComponet = ({result}: Props) => {
       </div>
       <div className='button_component'>
         {result?.isValid === true ? 
-          <CSVLink data={data} headers={headers} filename='export' target='_blank'>
+          <CSVLink data={data} headers={headers} filename='PhoneNumberChecker' target='_blank'>
           <button className='download_csv'>Download CSV</button>
           </CSVLink> : <button className='download_csv' onClick={() => {
-            setErrorMessage("Phone Number is not valid")
+              setErrorMessage("Phone Number is not valid")
         }}>Download CSV</button>
       }
         <p>{errorMessage}</p>

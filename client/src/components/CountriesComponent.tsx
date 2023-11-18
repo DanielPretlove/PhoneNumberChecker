@@ -22,8 +22,6 @@ const CountriesComponent = ({ setResult }: Props) => {
       })
   }, []);
 
-  console.log(countries);
-  
   function ValidateResult(phoneNumber: string, countryCode: string) {
     Axios.get(`https://localhost:5000/api/NumberChecker/ValidatePhoneNumber/${phoneNumber}/${countryCode}`, {
       headers: {
@@ -70,12 +68,12 @@ const CountriesComponent = ({ setResult }: Props) => {
     <div className='button_component'>
       <button className='verify' onClick={() => {
         if (phoneNumber === "") {
-          setErrorMessage("Phone Number is empty")
+          setErrorMessage("Phone Number is empty");
         }
         else {
             ValidateResult(phoneNumber, countryCode);
+            setErrorMessage("")
           }
-          console.log(countryCode);
         }}>Verify</button>
         <p>{errorMessage}</p>
         
