@@ -1,7 +1,7 @@
 .result_container {
     padding: 0 30px;
-    min-width: 300px;
-    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
     justify-self: center;
     justify-items: center;
     justify-content: center;
@@ -26,4 +26,8 @@ button.download_csv {
     background-color: #4a8cac;
     color: white;
 }
-  
+
+
+.error {
+    color: red;
+}

@@ -66,16 +66,16 @@ const CountriesComponent = ({ setResult }: Props) => {
         <input placeholder={CountryTypePhoneNumber(countryCode)} onChange={e => setPhoneNumber(e.target.value)} />
     </div>
     <div className='button_component'>
-      <button className='verify' onClick={() => {
-        if (phoneNumber === "") {
-          setErrorMessage("Phone Number is empty");
+        <button className='verify' onClick={() => {
+          if (phoneNumber === "" || phoneNumber.length !== 10) {
+          setErrorMessage("Phone Number is empty or is not a valid phone number");
         }
         else {
             ValidateResult(phoneNumber, countryCode);
             setErrorMessage("")
           }
         }}>Verify</button>
-        <p>{errorMessage}</p>
+        <p className="error">{errorMessage}</p>
         
     </div>
   </div>

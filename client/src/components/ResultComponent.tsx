@@ -61,7 +61,7 @@ const ResultComponet = ({result}: Props) => {
               setErrorMessage("Phone Number is not valid")
         }}>Download CSV</button>
       }
-        <p>{errorMessage}</p>
+        <p className="error">{errorMessage}</p>
       </div>
   </div>
   )
