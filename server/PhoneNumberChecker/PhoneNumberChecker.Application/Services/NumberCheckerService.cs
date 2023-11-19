@@ -52,7 +52,7 @@ namespace PhoneNumberChecker.Application.Services
                     isMobile = true;
                 }
 
-                var originalNumber = phoneUtil.Format(phoneNumber, PhoneNumberFormat.E164); 
+                var internationalNumber = phoneUtil.Format(phoneNumber, PhoneNumberFormat.E164); 
                 if(telephoneNumber.Length == 10 && isValidRegion == true)
                 {
                     validationResult = new ValidationResultModel()
@@ -60,7 +60,7 @@ namespace PhoneNumberChecker.Application.Services
                         IsValid = isValidRegion,
                         IsPossible = isMobile,
                         PhoneType = numberType.ToString().ToLower(),
-                        InternationalFormat = originalNumber,
+                        InternationalFormat = internationalNumber,
                     };
                 }
 
